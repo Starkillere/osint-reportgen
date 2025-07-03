@@ -6,8 +6,8 @@ def show_banner():
     f = Figlet(font='slant')
     title = f.renderText("OsintReport")
     print(colored(title, "cyan"))
-    print(colored("Créé par A.Ayouba | 27/06/2025", "white"))
-    print(colored("-" * 60, "grey"))
+    print(colored("Créé par A.Ayouba | 27/06/2025", "red"))
+    print(colored("-" * 60, "red"))
 
 def get_user_choices():
     print("\n📜 MENU")
@@ -31,6 +31,12 @@ def get_user_choices():
             break
         print("❌ Option invalide.")
 
+    if choice == "1":
+        gpt_api_key = input("\n👉 Votre clé API GPT : ")
+    else :
+        gpt_api_key = None
+    
+
     filepath = input("\n🧾 Entrez le chemin du fichier : ").strip()
     output_path = input("💾 Nom du rapport (ex: rapport.md) : ").strip() or "rapport.md"
 
@@ -38,5 +44,6 @@ def get_user_choices():
         "use_ai": choice == "1",
         "source": source_map[source_choice],
         "input_path": filepath,
-        "output_path": output_path
+        "output_path": output_path,
+        "api_gpt_key" : gpt_api_key
     }
