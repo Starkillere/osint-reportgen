@@ -17,8 +17,10 @@ def main():
     gpt_api_key = user_choices["api_gpt_key"]
 
     if not use_ai:
-        pass
+        graph_maltego = parse_maltego_graph(source)
+        generate_report(graph_maltego, output_path)
     else:
+        pass
 
 if __name__ == "__main__":
     main()
